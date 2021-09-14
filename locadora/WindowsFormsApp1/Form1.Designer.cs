@@ -45,6 +45,10 @@ namespace WindowsFormsApp1
             this.tbAno = new System.Windows.Forms.TextBox();
             this.btLimpar = new System.Windows.Forms.Button();
             this.btInserir = new System.Windows.Forms.Button();
+            this.btAlterar = new System.Windows.Forms.Button();
+            this.btDeletar = new System.Windows.Forms.Button();
+            this.lbID = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgLocadora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +65,7 @@ namespace WindowsFormsApp1
             this.dgLocadora.Name = "dgLocadora";
             this.dgLocadora.Size = new System.Drawing.Size(768, 277);
             this.dgLocadora.TabIndex = 0;
+            this.dgLocadora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLocadora_CellContentClick);
             // 
             // colID
             // 
@@ -95,7 +100,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(84, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
@@ -104,7 +109,7 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 23);
+            this.label2.Location = new System.Drawing.Point(234, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 2;
@@ -113,7 +118,7 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(379, 23);
+            this.label3.Location = new System.Drawing.Point(401, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 3;
@@ -122,7 +127,7 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(579, 23);
+            this.label4.Location = new System.Drawing.Point(571, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 4;
@@ -130,28 +135,28 @@ namespace WindowsFormsApp1
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(56, 20);
+            this.tbNome.Location = new System.Drawing.Point(128, 24);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(100, 20);
             this.tbNome.TabIndex = 5;
             // 
             // tbCategoria
             // 
-            this.tbCategoria.Location = new System.Drawing.Point(240, 20);
+            this.tbCategoria.Location = new System.Drawing.Point(295, 23);
             this.tbCategoria.Name = "tbCategoria";
             this.tbCategoria.Size = new System.Drawing.Size(100, 20);
             this.tbCategoria.TabIndex = 6;
             // 
             // tbDescricao
             // 
-            this.tbDescricao.Location = new System.Drawing.Point(443, 20);
+            this.tbDescricao.Location = new System.Drawing.Point(465, 23);
             this.tbDescricao.Name = "tbDescricao";
             this.tbDescricao.Size = new System.Drawing.Size(100, 20);
             this.tbDescricao.TabIndex = 7;
             // 
             // tbAno
             // 
-            this.tbAno.Location = new System.Drawing.Point(614, 20);
+            this.tbAno.Location = new System.Drawing.Point(606, 23);
             this.tbAno.Name = "tbAno";
             this.tbAno.Size = new System.Drawing.Size(100, 20);
             this.tbAno.TabIndex = 8;
@@ -179,11 +184,58 @@ namespace WindowsFormsApp1
             this.btInserir.UseVisualStyleBackColor = false;
             this.btInserir.Click += new System.EventHandler(this.brInserir_Click);
             // 
+            // btAlterar
+            // 
+            this.btAlterar.BackColor = System.Drawing.Color.Yellow;
+            this.btAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAlterar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btAlterar.Location = new System.Drawing.Point(112, 94);
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.Size = new System.Drawing.Size(91, 48);
+            this.btAlterar.TabIndex = 11;
+            this.btAlterar.Text = "Alterar";
+            this.btAlterar.UseVisualStyleBackColor = false;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
+            // 
+            // btDeletar
+            // 
+            this.btDeletar.BackColor = System.Drawing.Color.Red;
+            this.btDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDeletar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btDeletar.Location = new System.Drawing.Point(209, 94);
+            this.btDeletar.Name = "btDeletar";
+            this.btDeletar.Size = new System.Drawing.Size(91, 48);
+            this.btDeletar.TabIndex = 12;
+            this.btDeletar.Text = "Deletar";
+            this.btDeletar.UseVisualStyleBackColor = false;
+            this.btDeletar.Click += new System.EventHandler(this.btDeletar_Click);
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.Location = new System.Drawing.Point(14, 27);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(21, 13);
+            this.lbID.TabIndex = 13;
+            this.lbID.Text = "ID:";
+            // 
+            // tbID
+            // 
+            this.tbID.Enabled = false;
+            this.tbID.Location = new System.Drawing.Point(41, 24);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(37, 20);
+            this.tbID.TabIndex = 14;
+            // 
             // formLocadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.lbID);
+            this.Controls.Add(this.btDeletar);
+            this.Controls.Add(this.btAlterar);
             this.Controls.Add(this.btInserir);
             this.Controls.Add(this.btLimpar);
             this.Controls.Add(this.tbAno);
@@ -196,6 +248,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgLocadora);
             this.Name = "formLocadora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLocadora)).EndInit();
@@ -222,6 +275,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAno;
         private System.Windows.Forms.Button btInserir;
+        private System.Windows.Forms.Button btAlterar;
+        private System.Windows.Forms.Button btDeletar;
+        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.TextBox tbID;
     }
 }
 
